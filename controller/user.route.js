@@ -106,7 +106,7 @@ module.exports = function(express, app) {
         });
       }
     })
-    .delete(isUser, (req, res, next) => {
+    .delete(hasAuthority, isUser, (req, res, next) => {
       if (users) {
         const user = users.find(user => user.id === parseInt(req.params.id));
         if (!user) {
